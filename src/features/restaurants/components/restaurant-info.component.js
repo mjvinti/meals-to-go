@@ -1,0 +1,3 @@
+import { Text } from "react-native";
+
+export const RestaurantInfo = () => <Text>RestaurantInfo</Text>;
