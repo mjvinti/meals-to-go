@@ -14,12 +14,12 @@ const RestaurantCardCover = styled(Card.Cover)`
 
 const Title = styled(Text)`
   padding: 16px;
-  color: red;
+  color: ${(props) => props.theme.colors.ui.primary};
 `;
 
 export const RestaurantInfoCard = ({ restaurant = {} }) => {
   const {
-    name = "some restaurant",
+    name = "Some Restaurant",
     icon,
     photos = [
       "https://www.foodiesfeed.com/wp-content/uploads/2019/06/top-view-for-box-of-2-burgers-home-made-600x899.jpg",
