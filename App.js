@@ -8,6 +8,7 @@ import {
 import { useFonts as useLato, Lato_400Regular } from "@expo-google-fonts/lato";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { Ionicons } from "@expo/vector-icons";
 
 import { RestaurantsScreen } from "./src/features/restaurants/screens/restaurants.screen";
 import { SafeArea } from "./src/components/utils/safe-area.component";
@@ -21,9 +22,9 @@ const SettingsScreen = () => (
     <Text>Settings</Text>
   </SafeArea>
 );
-const MapsScreen = () => (
+const MapScreen = () => (
   <SafeArea>
-    <Text>Maps</Text>
+    <Text>Map</Text>
   </SafeArea>
 );
 
@@ -39,9 +40,29 @@ export default function App() {
     <>
       <ThemeProvider theme={theme}>
         <NavigationContainer>
-          <Tab.Navigator>
+          <Tab.Navigator
+            screenOptions={({ route }) => ({
+              tabBarIcon: ({ color, size }) => {
+                let iconName;
+
+                if (route.name === "Restaurants") {
+                  iconName = "md-restaurant";
+                } else if (route.name === "Settings") {
+                  iconName = "md-settings";
+                } else if (route.name === "Map") {
+                  iconName = "map";
+                }
+
+                return <Ionicons name={iconName} size={size} color={color} />;
+              },
+            })}
+            tabBarOptions={{
+              activeTintColor: "tomato",
+              inactiveTintColor: "gray",
+            }}
+          >
             <Tab.Screen name="Restaurants" component={RestaurantsScreen} />
-            <Tab.Screen name="Maps" component={MapsScreen} />
+            <Tab.Screen name="Map" component={MapScreen} />
             <Tab.Screen name="Settings" component={SettingsScreen} />
           </Tab.Navigator>
         </NavigationContainer>
