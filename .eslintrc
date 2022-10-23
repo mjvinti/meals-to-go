@@ -1,7 +1,7 @@
 {
   "extends": "@react-native-community",
   "rules": {
-    "quotes": [2, "double", { "avoidEscape": true, "allowAsProps": true }],
+    "quotes": [2, "double", { "avoidEscape": true }],
     "react/react-in-jsx-scope": "off"
   }
 }
