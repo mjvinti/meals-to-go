@@ -14,8 +14,6 @@ import { RestaurantsScreen } from "./src/features/restaurants/screens/restaurant
 import { SafeArea } from "./src/components/utils/safe-area.component";
 import { theme } from "./src/infrastructure/theme";
 
-import { restaurantsRequest } from "./src/services/restaurants/restaurants.service";
-
 const Tab = createBottomTabNavigator();
 
 const TAB_ICON = {
